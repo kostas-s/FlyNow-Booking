@@ -13,16 +13,49 @@
  *= require_tree .
  *= require_self
  */
-$family-sans-serif: 'Open Sans', sans-serif;
+$box-background-color: hsl(44, 100%, 77%);
+$warning: hsl(44, 100%, 77%);
+
 
 @import 'bulma';
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
-
+$family-sans-serif: 'Open Sans', sans-serif;
 body {
+  font-family: $family-sans-serif;
   background-image: url("bg.jpg");
   background-size: 100vmax;
   height: 100vh;
-  background-position: top;
+  background-position: center;
   background-repeat: repeat-y;
+}
+
+.navbar-brand {
+  margin-left: 15px;
+}
+
+.form .column {
+  margin: 35vmin 5px;
+}
+
+
+.control {
+  margin: 0 5px;
+  width: 158px;
+  font-size: 1.1rem;
+  @media (max-width: 768px) {
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+    padding: 10px;
+  }
+}
+
+.button {
+  margin-bottom: 12px;
+  margin-left: 36px;
+  transition-duration: 0.2s;
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
 }

@@ -1,28 +1,54 @@
 <div class="form">
-  <div class="columns">
-    <div class="column is-half is-offset-one-quarter">
+  <div class="columns is-centered">
+    <div class="column">
       <div class="box">
-        <div class="columns">
+        <div class="columns is-centered is-vcentered is-warning">
 
           <div class="field">
-            <label class="label">Departure</label>
+            <label class="label has-text-centered"></label>
             <div class="control">
-              <div class="select">
-                <%= select(:flight, :airport_id, (@airport_options)) %>
+              <div class="select is-rounded">
+                <%= select(:flight, :airport_id, (@airport_options), prompt: "From:") %>
               </div>
             </div>
           </div>
 
 
           <div class="field">
-            <label class="label">Arrival</label>
+            <label class="label has-text-centered"></label>
             <div class="control">
-              <div class="select">
-                <%= select(:flight, :airport_id, (@airport_options)) %>
+              <div class="select is-rounded">
+                <%= select(:flight, :airport_id, (@airport_options), prompt: "To:") %>
               </div>
             </div>
-
           </div>
+
+          <div class="field">
+            <label class="label has-text-centered"></label>
+            <div class="control">
+              <div class="select is-rounded">
+                <%= select(:flight, :airport_id, (@dates), prompt: "Date:") %>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label has-text-centered"></label>
+            <div class="control">
+              <div class="select is-rounded">
+                <%= select(:flight, :airport_id, (@passengers), prompt: "Passengers:") %>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label has-text-centered"></label>
+            <div class="control">
+              <div class="button is-dark is-rounded is-outlined">
+                Book
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
