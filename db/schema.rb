@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_08_124854) do
+ActiveRecord::Schema.define(version: 2021_02_09_083841) do
 
   create_table "airports", force: :cascade do |t|
     t.string "acronym"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2021_02_08_124854) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "arrival_airport_id"
     t.integer "departure_airport_id"
+    t.float "duration"
   end
 
 end

@@ -36,20 +36,30 @@ body {
 
 .form .column {
   margin: 35vmin 5px;
-}
 
-
-.control {
-  margin: 0 5px;
-  width: 158px;
-  font-size: 1.1rem;
-  @media (max-width: 768px) {
-    text-align: center;
-    width: 100%;
-    margin-left: 0;
-    padding: 10px;
+  .control {
+    margin: 0 5px;
+    width: 158px;
+    font-size: 1.1rem;
+    @media (max-width: 768px) {
+      text-align: center;
+      width: 100%;
+      margin-left: 0;
+      padding: 10px;
+    }
   }
 }
+
+.about .column {
+  margin: 35vmin 5px;
+
+  .control {
+    margin: 0;
+    font-size: 1.5em;
+    width: inherit;
+  }
+}
+
 
 .button {
   margin-bottom: 12px;
