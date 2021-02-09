@@ -9,20 +9,37 @@
 
               <div class="field">
 
-                <div class="collection is-rounded">
-                  <%= f.collection_radio_buttons :flight, (@available_flights), :id, :arrival_airport %>
+                <div class="collection">
+                  <% @available_flights.each do |currflight| %>
+                    <div>
+                      <label class="radio is-vcentered flight" id="flight">
+                        <div class="title is-5 has-text-centered"><%= currflight.date.to_formatted_s(:short) %></div>
 
-                </div>
 
-              </div>
+                        <%= f.radio_button :flight, currflight, class: "radio" %>
+                        <span class="title is-5"><%= currflight.departure_airport.name %></span>
+                        <span class="icon-text"><span class="icon">
+                    <i class="fas fa-plane" aria-hidden="true"> </i>
+                    </span>
+                        <span class="title is-5"><%= currflight.arrival_airport.name %></span>
+                    </span>
+                        <br/>
+                        <div class="title is-6 has-text-centered"><%= currflight.duration %>
+                          minutes
+                        </div>
 
-              <div class="field">
-                <label class="label has-text-centered"></label>
-                <div class="control">
-                  <%= f.submit "Select", class: "button is-dark is-rounded is-outlined" %>
+                      </label>
+                    </div>
+                  <% end %>
                 </div>
               </div>
             </div>
+            <div class="column is-vcentered has-text-centered">
+
+              <%= f.submit "Book Tickets", class: "button is-dark is-rounded is-outlined" %>
+
+            </div>
+
           <% end %>
         </div>
       </div>

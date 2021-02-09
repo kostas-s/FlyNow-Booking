@@ -15,6 +15,20 @@ ActiveStorage.start()
 const btn = document.querySelector('#search-btn')
 const searchForm = document.querySelector('#search-form')
 
+const flights = document.querySelectorAll('#flight')
+
+for (let i = 0; i < flights.length; i++) {
+    flights[i].addEventListener('click', (evt) => {
+        flights[i].classList.add('selected');
+        for (let j = 0; j < flights.length; j++) {
+            if (j === i) {
+                continue;
+            }
+            flights[j].classList.remove('selected');
+        }
+    
+    })
+}
 btn.addEventListener('click', () => {
     searchForm.classList.add('raised')
 })

@@ -18,6 +18,8 @@ $warning: hsl(44, 100%, 77%);
 
 
 @import 'bulma';
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 $family-sans-serif: 'Open Sans', sans-serif;
@@ -35,7 +37,7 @@ body {
 }
 
 .form .column {
-  transition-duration: 0.8s;
+
   margin-top: 35vh;
   margin-left: 5px;
   margin-right: 5px;
@@ -51,6 +53,7 @@ body {
       padding: 10px;
     }
   }
+
 }
 
 .column .raised {
@@ -58,7 +61,24 @@ body {
 }
 
 .select-flight .column {
-  margin-top: 0;
+  margin-top: 10px;
+}
+
+.flight {
+  margin-top: 25px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  border: solid rgba(0, 0, 0, 0.1) 1px;
+
+
+  //box-shadow: 1px 1px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.selected {
+  transition-duration: 0.2s;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.1) !important;
 }
 
 .about .column {
@@ -71,12 +91,14 @@ body {
   }
 }
 
-
 .button {
   margin-bottom: 12px;
   margin-left: 36px;
-  transition-duration: 0.2s;
   @media (max-width: 768px) {
     margin-left: 0;
   }
+}
+
+.button:hover {
+  transition-duration: 0.3s;
 }

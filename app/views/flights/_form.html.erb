@@ -2,7 +2,7 @@
   <div class="columns is-centered">
     <div class="column" id="search-form">
       <div class="box">
-        <%= form_with model: @flight, url: '/flights', method: 'get', local: true do |f| %>
+        <%= form_with model: @flight, url: '/flights', method: 'get', remote: true do |f| %>
           <div class="columns is-centered is-vcentered is-warning">
 
             <div class="field">

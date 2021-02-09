@@ -10,7 +10,7 @@ class FlightsController < ApplicationController
                                             date: params[:date])
       if @available_flights.count.positive?
         respond_to do |format|
-          format.html {}
+          format.html { render :index }
           format.js { available_flights = @available_flights }
           format.json { render :index, @available_flights }
         end
