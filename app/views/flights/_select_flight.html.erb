@@ -1,0 +1,31 @@
+<div class="select-flight">
+  <div class="form">
+    <div class="columns is-centered">
+      <div class="column">
+
+        <div class="box">
+          <%= form_with model: @flight, url: '/select-flight', method: 'post' do |f| %>
+            <div class="columns is-centered is-vcentered is-warning">
+
+              <div class="field">
+
+                <div class="collection is-rounded">
+                  <%= f.collection_radio_buttons :flight, (@available_flights), :id, :arrival_airport %>
+
+                </div>
+
+              </div>
+
+              <div class="field">
+                <label class="label has-text-centered"></label>
+                <div class="control">
+                  <%= f.submit "Select", class: "button is-dark is-rounded is-outlined" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

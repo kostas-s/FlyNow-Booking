@@ -7,11 +7,15 @@
   <%= csp_meta_tag %>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', :defer => 'defer' %>
 </head>
 
 <body>
 <%= render 'layouts/navbar' %>
+<% if alert %>
+  <div class="notification is-danger">
+    <p class="alert"><%= alert %></p></div>
+<% end %>
 <%= yield %>
 </body>
 </html>

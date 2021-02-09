@@ -11,3 +11,10 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+const btn = document.querySelector('#search-btn')
+const searchForm = document.querySelector('#search-form')
+
+btn.addEventListener('click', () => {
+    searchForm.classList.add('raised')
+})

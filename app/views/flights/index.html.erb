@@ -1,1 +1,5 @@
-<%= render 'flights/form', airport_options: @airport_options %>
+<%= render 'flights/form', airport_options: @airport_options, dates: @dates, passengers: @passengers %>
+
+<% if @available_flights %>
+  <%= render 'select_flight' %>
+<% end %>
