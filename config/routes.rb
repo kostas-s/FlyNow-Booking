@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'bookings/new'
-  get 'bookings/create'
+  post 'bookings/create'
+  get 'booking/:id', to: 'bookings#show', as: 'booking'
   get 'about/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'flights#index'

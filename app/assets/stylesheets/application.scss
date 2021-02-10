@@ -75,6 +75,23 @@ body {
   //box-shadow: 1px 1px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
+.passenger .form {
+  margin: 10px 170px;
+
+  @media (max-width: 768px) {
+    margin: 10px 10px !important;
+  }
+
+  .control {
+    margin: auto !important;
+    width: 100% !important;
+
+    .input {
+      font-size: 1.1em;
+    }
+  }
+}
+
 .selected {
   transition-duration: 0.2s;
   background-color: rgba(255, 255, 255, 0.5) !important;
@@ -101,4 +118,17 @@ body {
 
 .button:hover {
   transition-duration: 0.3s;
+}
+
+.footer {
+  padding: 10px;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  background-color: $dark;
+  color: $light;
+
+  a {
+    color: $warning;
+  }
 }

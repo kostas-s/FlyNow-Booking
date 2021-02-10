@@ -26,9 +26,11 @@ for (let i = 0; i < flights.length; i++) {
             }
             flights[j].classList.remove('selected');
         }
-    
+
     })
 }
-btn.addEventListener('click', () => {
-    searchForm.classList.add('raised')
-})
+if (btn) {
+    btn.addEventListener('click', () => {
+        searchForm.classList.add('raised')
+    })
+}

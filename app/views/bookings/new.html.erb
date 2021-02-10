@@ -3,7 +3,8 @@
     <div class="column">
 
       <div class="box">
-        <%= form_with model: @booking, url: bookings_create_path, method: 'post' do |f| %>
+        <%= form_with model: @booking, url: bookings_create_path, method: 'post', local: true do |f| %>
+          <%= f.hidden_field :flight_id, value: @flight.id %>
           <div class="columns is-centered is-vcentered is-warning">
             <div class="field">
               <div class="collection">
@@ -26,21 +27,29 @@
                 </div>
               </div>
             </div>
-            <hr/>
-            <% @passengers.each do |passenger| %>
-              <br/>
-              <br/>
-              <div class="field collection">
-                <div class="box is-vcentered has-text-centered">
-                  <%= fields_for passenger do |form| %>
-                    <%= form.text_field :name %>
-                    <%= form.email_field :email %>
-                  <% end %>
+          </div>
+          <hr/>
+
+
+          <div class="title is-5 has-text-centered">Passenger Info:</div>
+          <%= f.fields_for :passengers do |form| %>
+
+            <div class="passenger">
+              <div class="form">
+                <div class="box flight">
+                  <div class="control">
+                    <%= form.text_field :name, placeholder: "Name", required: true, class: "input is-warning" %></div>
+                  <br/>
+                  <div class="control">
+                    <%= form.email_field :email, placeholder: "Email", required: true, class: "input is-warning" %></div>
                 </div>
               </div>
-            <% end %>
-          </div>
-          <div class="column is-vcentered has-text-centered">
+            </div>
+          <% end %>
+
+
+          <br/>
+          <div class="is-vcentered has-text-centered">
 
             <%= f.submit "Book Tickets", class: "button is-dark is-rounded is-outlined" %>
 
