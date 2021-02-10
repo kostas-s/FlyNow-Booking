@@ -27,8 +27,8 @@ body {
   font-family: $family-sans-serif;
   background-image: url("bg.jpg");
   background-size: 100vmax;
-  height: 100vh;
-  background-position: center;
+  min-height: 100vmax;
+  background-position: top;
   background-repeat: repeat-y;
 }
 
@@ -38,7 +38,7 @@ body {
 
 .form .column {
 
-  margin-top: 35vh;
+  margin-top: 25vh;
   margin-left: 5px;
   margin-right: 5px;
 
@@ -57,7 +57,7 @@ body {
 }
 
 .column .raised {
-  margin-top: 25vh;
+  margin-top: 15vh;
 }
 
 .select-flight .column {
@@ -82,7 +82,7 @@ body {
 }
 
 .about .column {
-  margin: 35vmin 5px;
+  margin: 25vh 5px;
 
   .control {
     margin: 0;

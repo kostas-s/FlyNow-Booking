@@ -1,0 +1,53 @@
+<div class="form">
+  <div class="columns is-centered">
+    <div class="column">
+
+      <div class="box">
+        <%= form_with model: @booking, url: bookings_create_path, method: 'post' do |f| %>
+          <div class="columns is-centered is-vcentered is-warning">
+            <div class="field">
+              <div class="collection">
+                <div>
+                  <label class="box is-vcentered flight">
+                    <div class="title is-5 has-text-centered"><%= @flight.date.to_formatted_s(:short) %></div>
+
+                    <span class="title is-5"><%= @flight.departure_airport.name %></span>
+                    <span class="icon-text"><span class="icon">
+                    <i class="fas fa-plane" aria-hidden="true"> </i>
+                    </span>
+                        <span class="title is-5"><%= @flight.arrival_airport.name %></span>
+                    </span>
+                    <br/>
+                    <div class="title is-6 has-text-centered"><%= @flight.duration %>
+                      minutes
+                    </div>
+
+                  </label>
+                </div>
+              </div>
+            </div>
+            <hr/>
+            <% @passengers.each do |passenger| %>
+              <br/>
+              <br/>
+              <div class="field collection">
+                <div class="box is-vcentered has-text-centered">
+                  <%= fields_for passenger do |form| %>
+                    <%= form.text_field :name %>
+                    <%= form.email_field :email %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="column is-vcentered has-text-centered">
+
+            <%= f.submit "Book Tickets", class: "button is-dark is-rounded is-outlined" %>
+
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

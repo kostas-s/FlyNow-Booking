@@ -4,7 +4,8 @@
       <div class="column">
 
         <div class="box">
-          <%= form_with model: @flight, url: '/select-flight', method: 'post' do |f| %>
+          <%= form_with model: @flight, url: bookings_new_path, method: 'get' do |f| %>
+            <%= hidden_field_tag :passengers, @passenger_num %>
             <div class="columns is-centered is-vcentered is-warning">
 
               <div class="field">
@@ -16,7 +17,7 @@
                         <div class="title is-5 has-text-centered"><%= currflight.date.to_formatted_s(:short) %></div>
 
 
-                        <%= f.radio_button :flight, currflight, class: "radio" %>
+                        <%= f.radio_button :flight, currflight.id, class: "radio" %>
                         <span class="title is-5"><%= currflight.departure_airport.name %></span>
                         <span class="icon-text"><span class="icon">
                     <i class="fas fa-plane" aria-hidden="true"> </i>
