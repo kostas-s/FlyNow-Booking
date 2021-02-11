@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :check_flight_exists, only: [:create, :new]
+  before_action :check_booking_exists, only: [:show]
 
   def new
     @flight = Flight.find_by(id: params[:flight])
@@ -38,7 +39,15 @@ class BookingsController < ApplicationController
     unless Flight.find_by(id: params[:flight]) ||
       (params[:booking]) && Flight.find_by(id: params[:booking][:flight_id])
       respond_to do |format|
-        format.html { redirect_to '/', alert: "Flight not found" }
+        format.html { redirect_to root_path, alert: "Flight not found" }
+      end
+    end
+  end
+
+  def check_booking_exists
+    unless Booking.find_by(id: params[:id])
+      respond_to do |format|
+        format.html { redirect_to root_path, alert: "Booking not found" }
       end
     end
   end
