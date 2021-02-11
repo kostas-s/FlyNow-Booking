@@ -28,8 +28,7 @@ service on your machine.
 
 ## Upcoming features
 
-* Needs updates on styling
-* Needs work on supporting flight times on top of existing dates
+* Add support for flight times on top of existing dates
 
 ---------------------------------------------------
 All code is written from scratch by Kostas. Assignment for [The Odin Project](https://www.theodinproject.com/).
