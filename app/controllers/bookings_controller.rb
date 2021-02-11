@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :check_flight_exists, only: [:create, :new]
 
   def new
     @flight = Flight.find_by(id: params[:flight])
@@ -9,11 +10,16 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    if @booking.save!
-
-      redirect_to booking_path(@booking)
+    if @booking.save
+      respond_to do |format|
+        format.html { redirect_to booking_path(@booking) }
+        format.json { head :no_content }
+      end
     else
-
+      respond_to do |format|
+        format.html { redirect_to '/', alert: "Booking could not be created" }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -26,6 +32,15 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:flight_id, passengers_attributes: [:email, :name])
+  end
+
+  def check_flight_exists
+    unless Flight.find_by(id: params[:flight]) ||
+      (params[:booking]) && Flight.find_by(id: params[:booking][:flight_id])
+      respond_to do |format|
+        format.html { redirect_to '/', alert: "Flight not found" }
+      end
+    end
   end
 
 end

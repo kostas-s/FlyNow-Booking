@@ -23,10 +23,10 @@
             </div>
           </div>
           <br/><br/>
-
+          <% i = 1 %>
           <% @booking.passengers.each do |passenger| %>
             <div class="is-centered has-text-centered flight">
-              <% i = 1 %>
+
               <div class="title is-5 has-text-centered"><strong>Passenger </strong> <%= i %></div>
               <div class="title is-4 has-text-centered"><strong>Name:</strong> <%= passenger.name %></div>
               <div class="title is-4 has-text-centered"><strong>Email:</strong> <%= passenger.email %></div>
