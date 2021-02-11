@@ -9,12 +9,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    puts "=============booking is ========" + @booking.passengers[0].name
     if @booking.save!
-      puts "====================BRAVOOOOOOO"
+
       redirect_to booking_path(@booking)
     else
-      puts "====================ARXIDIA"
+
     end
   end
 

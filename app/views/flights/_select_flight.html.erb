@@ -1,49 +1,49 @@
 <div class="select-flight">
   <div class="form">
-    <div class="columns is-centered">
-      <div class="column">
 
-        <div class="box">
-          <%= form_with model: @flight, url: bookings_new_path, method: 'get' do |f| %>
-            <%= hidden_field_tag :passengers, @passenger_num %>
-            <div class="columns is-centered is-vcentered is-warning">
+    <div class="column">
 
-              <div class="field">
+      <div class="box">
+        <%= form_with model: @flight, url: bookings_new_path, method: 'get' do |f| %>
+          <%= hidden_field_tag :passengers, @passenger_num %>
+          <div class="columns is-centered is-vcentered is-warning">
 
-                <div class="collection">
-                  <% @available_flights.each do |currflight| %>
-                    <div>
-                      <label class="radio is-vcentered flight" id="flight">
-                        <div class="title is-5 has-text-centered"><%= currflight.date.to_formatted_s(:short) %></div>
+            <div class="field">
+
+              <div class="collection">
+                <% @available_flights.each do |currflight| %>
+                  <div>
+                    <label class="radio is-vcentered flight" id="flight">
+                      <div class="title is-5 has-text-centered"><%= currflight.date.to_formatted_s(:short) %></div>
 
 
-                        <%= f.radio_button :flight, currflight.id, class: "radio" %>
-                        <span class="title is-5"><%= currflight.departure_airport.name %></span>
-                        <span class="icon-text"><span class="icon">
+                      <%= f.radio_button :flight, currflight.id, required: true, class: "radio" %>
+                      <span class="title is-5"><%= currflight.departure_airport.name %></span>
+                      <span class="icon-text"><span class="icon">
                     <i class="fas fa-plane" aria-hidden="true"> </i>
                     </span>
                         <span class="title is-5"><%= currflight.arrival_airport.name %></span>
                     </span>
-                        <br/>
-                        <div class="title is-6 has-text-centered"><%= currflight.duration %>
-                          minutes
-                        </div>
+                      <br/>
+                      <div class="title is-6 has-text-centered"><%= currflight.duration %>
+                        minutes
+                      </div>
 
-                      </label>
-                    </div>
-                  <% end %>
-                </div>
+                    </label>
+                  </div>
+                <% end %>
               </div>
             </div>
-            <div class="column is-vcentered has-text-centered">
+          </div>
+          <div class="column is-vcentered has-text-centered">
 
-              <%= f.submit "Book Tickets", class: "button is-dark is-rounded is-outlined" %>
+            <%= f.submit "Book Tickets", class: "button is-dark is-rounded" %>
 
-            </div>
+          </div>
 
-          <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
+
 </div>

@@ -13,8 +13,8 @@
  *= require_tree .
  *= require_self
  */
-$box-background-color: hsl(44, 100%, 77%);
-$warning: hsl(44, 100%, 77%);
+$box-background-color: hsla(44, 100%, 77%, 0.3);
+$warning: hsla(44, 100%, 77%, 0.5);
 
 
 @import 'bulma';
@@ -29,7 +29,7 @@ body {
   background-size: 100vmax;
   min-height: 100vmax;
   background-position: top;
-  background-repeat: repeat-y;
+  background-repeat: repeat;
 }
 
 .navbar-brand {
@@ -38,7 +38,7 @@ body {
 
 .form .column {
 
-  margin-top: 25vh;
+  margin-top: 15vh;
   margin-left: 5px;
   margin-right: 5px;
 
@@ -67,7 +67,7 @@ body {
 .flight {
   margin-top: 25px;
   padding: 15px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: ghostwhite;
   border-radius: 15px;
   border: solid rgba(0, 0, 0, 0.1) 1px;
 
@@ -94,12 +94,21 @@ body {
 
 .selected {
   transition-duration: 0.2s;
-  background-color: rgba(255, 255, 255, 0.5) !important;
-  box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.1) !important;
+
+  box-shadow: 1px 1px 8px 5px rgba(0, 0, 0, 0.4) !important;
 }
 
 .about .column {
-  margin: 25vh 5px;
+  margin: 15vh 5px;
+
+  .box {
+    background-color: $dark;
+    color: $light;
+
+    a, strong {
+      color: $warning;
+    }
+  }
 
   .control {
     margin: 0;
@@ -121,7 +130,7 @@ body {
 }
 
 .footer {
-  padding: 10px;
+  padding: 10px 0;
   bottom: 0;
   position: fixed;
   width: 100%;
@@ -131,4 +140,12 @@ body {
   a {
     color: $warning;
   }
+}
+
+.title {
+  margin: auto;
+  padding: 4px;
+  width: fit-content;
+  background-color: ghostwhite;
+  border-radius: 10px;
 }
