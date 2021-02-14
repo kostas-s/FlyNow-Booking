@@ -5,7 +5,7 @@ class FlightsController < ApplicationController
     @dates = Flight.select(:date).map { |date| [date.date.to_date] }
     @dates.uniq!
     @passengers = (1..4)
-    if params[:departure_airport_id] && params[:arrival_airport_id] && params[:date] && params[:passengers]
+    if params[:departure_airport_id].present? && params[:arrival_airport_id].present? && params[:date].present? && params[:passengers].present?
       @available_flights = Flight.all.where(departure_airport_id: params[:departure_airport_id],
                                             arrival_airport_id: params[:arrival_airport_id]).where("date::date = ?", params[:date])
       @passenger_num = params[:passengers]
