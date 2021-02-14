@@ -1,1 +1,12 @@
-This is a sample mail
+Dear <%= @passenger.name %>
+
+Thank you for choosing FlyNow for your flight tickets!
+
+You have just booked a ticket from <%= @booking.flight.departure_airport.name %> to <%= @booking.flight.arrival_airport.name %>.
+Flight time: <%= @booking.flight.date.to_formatted_s(:short) %>
+See your booking details at <%= booking_url(@booking.id) %>
+
+Of course this is a mock site so you don't need to worry, you haven't booked any actual tickets to anywhere! You can enjoy the safety of your home a while longer!
+
+Regards, Kostas-s
+Find me on https://github.com/kostas-s
