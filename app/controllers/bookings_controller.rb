@@ -12,6 +12,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
+      @booking.passengers.each do |p|
+        PassengerMailer.with(booking: @booking, passenger: p).booking_email.deliver_now!
+      end
       respond_to do |format|
         format.html { redirect_to booking_path(@booking) }
         format.json { head :no_content }

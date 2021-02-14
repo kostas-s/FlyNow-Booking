@@ -1,0 +1,17 @@
+<div class="body" style="font-family: verdana, arial, helvetica, sans-serif">
+  <h2>Dear <%= @passenger.name %></h2>
+  <br/>
+  <h4>Thank you for choosing <strong>FlyNow</strong> for your flight tickets!</h4>
+  <br/>
+  <p>You have just booked a ticket from <strong><%= @booking.flight.departure_airport.name %></strong>
+    to <strong><%= @booking.flight.arrival_airport.name %></strong>.
+  </p>
+  <p>Flight time: <%= @booking.flight.date.to_formatted_s(:short) %></p>
+  <p>See your booking details <%= link_to "Here", booking_url(@booking.id) %></p>
+  <br/>
+  <p><em>Of course this is a mock site so you don't need to worry, you haven't booked any
+    actual tickets to anywhere! You can enjoy the safety of your home a while longer!</em></p>
+  <br/>
+  <p>Regards, Kostas-s</p>
+  <p>Find me on <a href="https://github.com/kostas-s">GitHub</a></p>
+</div>
